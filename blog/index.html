@@ -5,40 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog — Hosting Poradnik</title>
     <meta name="description" content="Artykuły o hostingu, WordPress, domenach i budowaniu stron. Praktyczne porady bez korpo-bełkotu.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.7; }
+        :root {
+            --bg: #090c10; --surface: #131720; --surface2: #1a2030;
+            --border: #212836; --text: #c5cdd8; --text-dim: #697386;
+            --heading: #eef1f6; --accent: #3b82f6; --accent-glow: #3b82f640;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
         .container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
-        h1 { font-size: 2rem; color: #f0f6fc; margin-bottom: 0.5rem; }
-        .back { color: #58a6ff; font-size: 0.9rem; margin-bottom: 2rem; display: inline-block; }
-        .back:hover { text-decoration: underline; }
-        .post { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.2rem; }
-        .post h2 { font-size: 1.3rem; margin-bottom: 0.5rem; }
-        .post h2 a { color: #58a6ff; text-decoration: none; }
-        .post h2 a:hover { text-decoration: underline; }
-        .post .date { color: #484f58; font-size: 0.85rem; margin-bottom: 0.5rem; }
-        .post .excerpt { color: #8b949e; }
-        .tag { display: inline-block; background: #21262d; color: #8b949e; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; margin-right: 0.4rem; }
-        .affiliate-note { font-size: 0.8rem; color: #484f58; text-align: center; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #21262d; }
-        a { color: #58a6ff; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+        .logo { font-weight: 800; font-size: 1.1rem; color: var(--heading); text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .back { color: var(--accent); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+        h1 { font-size: 2rem; font-weight: 800; color: var(--heading); margin-bottom: 0.5rem; letter-spacing: -0.015em; }
+        .subtitle { color: var(--text-dim); margin-bottom: 2.5rem; }
+        .post { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.2rem; transition: border-color 0.2s; }
+        .post:hover { border-color: #303850; }
+        .post h2 { font-size: 1.25rem; margin-bottom: 0.5rem; line-height: 1.4; }
+        .post h2 a { color: var(--heading); text-decoration: none; }
+        .post h2 a:hover { color: var(--accent); }
+        .post .date { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 0.8rem; }
+        .post .excerpt { color: var(--text-dim); font-size: 0.95rem; }
+        .tag { display: inline-block; background: var(--surface2); color: var(--text-dim); padding: 0.2rem 0.7rem; border-radius: 100px; font-size: 0.8rem; margin: 0 0.3rem 0.6rem 0; }
+        footer { border-top: 1px solid var(--border); margin-top: 3rem; padding: 1.5rem 0; text-align: center; color: var(--text-dim); font-size: 0.85rem; }
+        footer a { color: var(--text-dim); }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="../" class="back">← Hosting Poradnik</a>
+        <nav>
+            <a href="../" class="logo">hosting<span>poradnik</span></a>
+            <a href="../" class="back">← Powrót</a>
+        </nav>
         <h1>📝 Blog</h1>
-        <p style="color:#8b949e;margin-bottom:2rem;">Praktyczne artykuły o hostingu, WordPress i budowaniu stron. Zero korpo-bełkotu.</p>
+        <p class="subtitle">Praktyczne artykuły o hostingu, WordPress i budowaniu stron. Zero korpo-bełkotu.</p>
 
         <div class="post">
             <span class="tag">porównanie</span><span class="tag">SiteGround</span><span class="tag">Hostinger</span>
             <h2><a href="siteground-vs-hostinger-2026.html">Jaki hosting na start? SiteGround vs Hostinger — porównanie bez ściemy (2026)</a></h2>
             <div class="date">9 czerwca 2026</div>
-            <p class="excerpt">Porównuję dwa najlepsze hostingi dla początkujących: SiteGround (jakość i support) vs Hostinger (cena i prostota). Konkretne liczby, ceny odnowień, wady i zalety. Dowiedz się który wybrać do swojej pierwszej strony.</p>
+            <p class="excerpt">Porównuję dwa najlepsze hostingi dla początkujących. Konkretne liczby, ceny odnowień, wady i zalety. Dowiedz się który wybrać do swojej pierwszej strony.</p>
         </div>
 
-        <p style="text-align:center;color:#484f58;margin-top:2rem;">Więcej artykułów już wkrótce — WordPress tutorial, VPS vs współdzielony, słownik hostingowy...</p>
-
-        <p class="affiliate-note">Niektóre linki to linki afiliacyjne. © 2026 Hosting Poradnik</p>
+        <p style="text-align:center;color:var(--text-dim);margin-top:2rem;">Więcej artykułów już wkrótce — WordPress tutorial, VPS vs współdzielony, słownik hostingowy...</p>
     </div>
+    <footer>
+        <div class="container">
+            <p>Niektóre linki to linki afiliacyjne. © 2026 Hosting Poradnik</p>
+        </div>
+    </footer>
 </body>
 </html>
