@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hosting Poradnik — wybierz hosting bez ściemy</title>
+    <meta name="description" content="Praktyczny poradnik hostingu dla początkujących. Porównania, tutoriale, checklista. SiteGround vs Hostinger, WordPress, domeny, SSL.">
+    <meta name="keywords" content="hosting, poradnik, SiteGround, Hostinger, WordPress, domena, SSL, hosting dla początkujących, tani hosting, porównanie hostingu">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #0d1117; color: #c9d1d9; line-height: 1.7;
+        }
+        .container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+        header { 
+            text-align: center; padding: 4rem 0 2rem;
+            border-bottom: 1px solid #21262d; margin-bottom: 3rem;
+        }
+        h1 { font-size: 2.4rem; color: #f0f6fc; margin-bottom: 0.8rem; line-height: 1.3; }
+        .subtitle { font-size: 1.2rem; color: #8b949e; max-width: 560px; margin: 0 auto; }
+        h2 { font-size: 1.6rem; color: #f0f6fc; margin: 2.5rem 0 1rem; }
+        h3 { font-size: 1.2rem; color: #58a6ff; margin: 1.5rem 0 0.5rem; }
+        p { margin-bottom: 1rem; }
+        .benefit { 
+            background: #161b22; border: 1px solid #21262d; border-radius: 8px;
+            padding: 1.5rem; margin-bottom: 1rem;
+        }
+        .benefit h3 { margin-top: 0; }
+        .cta-box {
+            background: linear-gradient(135deg, #1f6feb22, #161b22);
+            border: 2px solid #1f6feb; border-radius: 12px;
+            padding: 2rem; text-align: center; margin: 3rem 0;
+        }
+        .cta-box h2 { margin-top: 0; color: #58a6ff; }
+        .btn {
+            display: inline-block; background: #238636; color: #fff;
+            padding: 0.8rem 2rem; border-radius: 6px; text-decoration: none;
+            font-size: 1.1rem; font-weight: 600; margin-top: 1rem;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #2ea043; }
+        .btn-outline {
+            display: inline-block; background: transparent; color: #58a6ff;
+            padding: 0.8rem 2rem; border-radius: 6px; text-decoration: none;
+            font-size: 1.1rem; font-weight: 600; border: 2px solid #30363d;
+            margin: 0.5rem; transition: border-color 0.2s;
+        }
+        .btn-outline:hover { border-color: #58a6ff; }
+        .faq-item { 
+            background: #161b22; border: 1px solid #21262d; border-radius: 8px;
+            padding: 1.2rem 1.5rem; margin-bottom: 0.8rem;
+        }
+        .faq-item h3 { margin-top: 0; cursor: pointer; }
+        .faq-item p { margin-bottom: 0; color: #8b949e; }
+        .audience { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem; margin: 1.5rem 0;
+        }
+        .audience-item {
+            background: #161b22; border: 1px solid #21262d; border-radius: 8px;
+            padding: 1.2rem; text-align: center;
+        }
+        .audience-item .emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+        .affiliate-note {
+            font-size: 0.8rem; color: #484f58; text-align: center; margin-top: 3rem;
+            padding-top: 1rem; border-top: 1px solid #21262d;
+        }
+        a { color: #58a6ff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        nav { text-align: center; margin-bottom: 2rem; }
+        nav a { margin: 0 1rem; color: #8b949e; font-size: 0.95rem; }
+        nav a:hover { color: #c9d1d9; }
+        .checklist-link { 
+            background: #1f6feb; color: #fff !important; 
+            padding: 0.5rem 1rem; border-radius: 6px;
+            font-weight: 600;
+        }
+        .checklist-link:hover { background: #388bfd; text-decoration: none !important; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Postaw swoją pierwszą stronę w sieci.<br>Bez wkuwania, bez przepłacania.</h1>
+            <p class="subtitle">Wybierz hosting, który nie wyciśnie Cię jak cytrynę i nie wymaga doktoratu z informatyki. Przeczytaj, sprawdź checklistę, działaj. Proste? Proste.</p>
+        </header>
+
+        <nav>
+            <a href="/">🏠 Start</a>
+            <a href="/blog/">📝 Blog</a>
+            <a href="#checklista" class="checklist-link">📋 Checklista</a>
+            <a href="#faq">❓ FAQ</a>
+        </nav>
+
+        <h2>Dla kogo to jest?</h2>
+        <div class="audience">
+            <div class="audience-item">
+                <div class="emoji">🎓</div>
+                <strong>Studentów</strong>
+                <p style="color:#8b949e;font-size:0.9rem;">Chcesz portfolio, bloga albo projekt na zaliczenie? Hosting za ~15 zł/mc ogarnie to.</p>
+            </div>
+            <div class="audience-item">
+                <div class="emoji">💼</div>
+                <strong>Freelancerów</strong>
+                <p style="color:#8b949e;font-size:0.9rem;">Wizytówka, landing page, mini-sklepik. Coś co działa, a Ty robisz swoje.</p>
+            </div>
+            <div class="audience-item">
+                <div class="emoji">🚀</div>
+                <strong>Pierwszych właścicieli</strong>
+                <p style="color:#8b949e;font-size:0.9rem;">Nigdy nie kupowałeś hostingu? Spokojnie. Przeprowadzę Cię krok po kroku.</p>
+            </div>
+        </div>
+
+        <h2>Co dostajesz — konkretnie</h2>
+
+        <div class="benefit">
+            <h3>🔒 SSL za darmo</h3>
+            <p>Strona bez HTTPS w 2026 to jak drzwi bez zamka. Google ją skreśla, klienci uciekają. Każdy hosting który polecam daje <strong>darmowy certyfikat SSL</strong> od ręki.</p>
+        </div>
+
+        <div class="benefit">
+            <h3>⚡ WordPress na jedno kliknięcie</h3>
+            <p>Nie musisz kodować. Instalujesz WordPress jednym przyciskiem, wybierasz szablon i masz stronę w godzinę. To nie czary — to normalny hosting w 2026.</p>
+        </div>
+
+        <div class="benefit">
+            <h3>💾 Codzienny backup</h3>
+            <p>Automatyczny backup każdego dnia. Zawalisz coś? Przywracasz wersję sprzed godziny. Żadnego płaczu nad utraconymi wpisami.</p>
+        </div>
+
+        <div class="benefit">
+            <h3>🇵🇱 Wsparcie po polsku</h3>
+            <p>Jak coś nie działa o 2 w nocy — piszesz na czat i dostajesz odpowiedź. <strong>Po polsku. Od człowieka.</strong> Bez translatora i zgadywania.</p>
+        </div>
+
+        <div class="benefit">
+            <h3>💰 Nie przepłacasz</h3>
+            <p>Dobry hosting na start to <strong>12-25 zł/mies</strong>. Taniej = ryzyko. Drożej = na start nie potrzebujesz. Pokażę Ci dokładnie które opcje są warte swojej ceny.</p>
+        </div>
+
+        <div class="cta-box" id="checklista">
+            <h2>📋 Nie kupuj w ciemno</h2>
+            <p style="font-size:1.1rem;">Ściągnij darmową checklistę — 12 punktów, które sprawdzisz w 5 minut przed wyborem hostingu. Żadnego lania wody, tylko konkrety.</p>
+            <a href="https://github.com/jxroo/hostingporadnik-pl/raw/main/assets/checklista-hosting.pdf" class="btn">📥 Pobierz checklistę (PDF)</a>
+            <p style="font-size:0.85rem;color:#8b949e;margin-top:0.8rem;">Zero spamu. Zero śledzenia. Po prostu PDF.</p>
+        </div>
+
+        <h2>Polecany hosting na start</h2>
+        <div class="benefit">
+            <h3>🏆 <a href="https://www.siteground.com/index.htm?afcode=42bd038b0c6a6e9f38a647f3e980c15b" target="_blank" rel="nofollow sponsored">SiteGround</a> — jakość i spokój</h3>
+            <p>Jeśli zależy Ci na wsparciu które faktycznie pomaga i infrastrukturze która nie pada. Live chat 24/7 po polsku, codzienne backupy, Google Cloud. <strong>Od ~60 zł/mc</strong> przy odnowieniu.</p>
+            <a href="https://www.siteground.com/index.htm?afcode=42bd038b0c6a6e9f38a647f3e980c15b" class="btn-outline" target="_blank" rel="nofollow sponsored">Sprawdź SiteGround →</a>
+        </div>
+
+        <div class="benefit">
+            <h3>💸 Hostinger — najlepszy stosunek ceny do możliwości</h3>
+            <p>Budżet jest kluczowy? Hostinger daje solidną usługę z polskim supportem, darmową domeną na pierwszy rok i własnym, prostym panelem hPanel. <strong>Od ~12 zł/mc</strong> w promocji.</p>
+            <a href="https://www.hostinger.pl/" class="btn-outline" target="_blank" rel="nofollow">Sprawdź Hostinger →</a>
+        </div>
+
+        <h2 id="faq">❓ FAQ — pytania które sam bym zadał</h2>
+
+        <div class="faq-item">
+            <h3>„Nie umiem nic o hostingu. Dam radę?"</h3>
+            <p>Tak. Hosting to dziś nie serwerownia — to panel gdzie klikasz „zainstaluj WordPress". Jeśli ogarniasz Facebooka, ogarniesz hosting.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>„Jaka jest różnica między hostingiem współdzielonym a VPS?"</h3>
+            <p><strong>Współdzielony</strong> = blok ze współlokatorami. Tanio, ogarnięte. <strong>VPS</strong> = własne mieszkanie. Drożej, więcej kontroli. Na start bierz współdzielony.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>„Ile to kosztuje?"</h3>
+            <p>Dobry hosting: <strong>12-25 zł/mies</strong>. Domena .pl: ~40-60 zł rocznie. Razem ok. 200-350 zł na rok za pełnoprawną stronę.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>„Czy hosting = domena?"</h3>
+            <p>Nie. <strong>Domena</strong> to adres (np. twojanazwa.pl). <strong>Hosting</strong> to miejsce gdzie trzymasz pliki. Kupujesz osobno, ale wiele firm daje domenę gratis na pierwszy rok.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>„Mogę zmienić hosting później?"</h3>
+            <p>Tak. Przenosisz pliki, zmieniasz DNS i gotowe. Dobry hosting (jak SiteGround) ma nawet darmowy plugin do migracji. Nie jesteś uwięziony.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>„Po co mi w ogóle strona?"</h3>
+            <p>Bo profil na LinkedIn czy Instagramie nie jest Twój — należy do platformy. Strona na własnym hostingu to <strong>Twoja przestrzeń</strong>. Nikt Ci jej nie wyłączy, nie zmieni algorytmu, nie schowa za paywallem.</p>
+        </div>
+
+        <p style="text-align:center;margin-top:3rem;font-size:1.1rem;">
+            👉 <a href="https://github.com/jxroo/hostingporadnik-pl/raw/main/assets/checklista-hosting.pdf">Pobierz checklistę</a> · 
+            <a href="/blog/">Czytaj bloga</a> · 
+            <a href="https://www.siteground.com/index.htm?afcode=42bd038b0c6a6e9f38a647f3e980c15b" target="_blank" rel="nofollow sponsored">SiteGround</a>
+        </p>
+
+        <p class="affiliate-note">
+            Niektóre linki na tej stronie to linki afiliacyjne. Jeśli kupisz przez nie hosting, mogę dostać prowizję — dla Ciebie cena się nie zmienia. Polecam tylko to, czego sam bym użył. 
+            <br>© 2026 Hosting Poradnik
+        </p>
+    </div>
+</body>
+</html>

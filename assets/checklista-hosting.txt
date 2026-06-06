@@ -1,0 +1,27 @@
+
+Checklista: Jak wybrać hosting i nie przepłacić
+----------------------------------------
+
+Zanim zaczniesz – co cię NIE obchodzi
+----------------------------------------
+
+✅ Checklista
+----------------------------------------
+☐ 1. Czy hosting ma darmowy SSL?
+☐ 2. Czy jest instalator WordPress (lub innego CMS) na jedno kliknięcie?
+☐ 3. Czy support mówi po polsku – i czy odpowiada na czacie?
+☐ 4. Czy są automatyczne codzienne backupy?
+☐ 5. Jaki jest limit ruchu i liczby odwiedzających?
+☐ 6. Czy hosting obsługuje domeny .pl bez kombinowania?
+☐ 7. Ile kosztuje odnowienie po pierwszym okresie?
+☐ 8. Czy jest staging / kopia testowa strony?
+☐ 9. Czy hosting ma CDN lub jest zoptymalizowany pod szybkość?
+☐ 10. Jaka jest gwarancja zwrotu pieniędzy?
+☐ 11. Czy panel jest czytelny, czy wygląda jak kokpit wahadłowca?
+☐ 12. Bonus: czy hosting ma serwer pocztowy w cenie?
+
+Szybkie rekomendacje (po sprawdzeniu tych 12 punktów)
+----------------------------------------
+
+Co dalej?
+----------------------------------------
