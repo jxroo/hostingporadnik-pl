@@ -3,451 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hosting Poradnik — wybierz hosting bez przepłacania</title>
-    <meta name="description" content="Praktyczny poradnik hostingu dla początkujących. Porównania, tutoriale, checklista.">
+    <title>Hosting Poradnik</title>
+    <meta name="description" content="Jak wybrać hosting i nie przepłacić. Konkretnie, bez ściemy.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* === NOTION DESIGN SYSTEM === */
         :root {
-            --white: #ffffff;
-            --warm-white: #f6f5f4;
-            --text-primary: rgba(0,0,0,0.95);
+            --text: rgba(0,0,0,0.9);
             --text-secondary: #615d59;
             --text-muted: #a39e98;
-            --cta-blue: #0075de;
-            --cta-hover: #005bab;
-            --focus-blue: #097fe8;
-            --pill-bg: #f2f9ff;
-            --pill-text: #097fe8;
-            --green: #1aae39;
-            --green-pill-bg: #edf7ed;
-            --green-pill-text: #0e7330;
-            --border-whisper: 1px solid rgba(0,0,0,0.1);
-            --card-shadow: rgba(0,0,0,0.04) 0px 4px 18px, rgba(0,0,0,0.027) 0px 2.025px 7.85px, rgba(0,0,0,0.02) 0px 0.8px 2.93px, rgba(0,0,0,0.01) 0px 0.175px 1.04px;
-            --deep-shadow: rgba(0,0,0,0.01) 0px 1px 3px, rgba(0,0,0,0.02) 0px 3px 7px, rgba(0,0,0,0.02) 0px 7px 15px, rgba(0,0,0,0.04) 0px 14px 28px, rgba(0,0,0,0.05) 0px 23px 52px;
+            --blue: #0075de;
+            --blue-hover: #005bab;
+            --bg-warm: #f6f5f4;
+            --border: 1px solid rgba(0,0,0,0.08);
+            --shadow-card: rgba(0,0,0,0.04) 0px 4px 18px, rgba(0,0,0,0.027) 0px 2.025px 7.85px, rgba(0,0,0,0.02) 0px 0.8px 2.93px, rgba(0,0,0,0.01) 0px 0.175px 1.04px;
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
-            font-family: 'Inter', -apple-system, system-ui, 'Segoe UI', sans-serif;
-            background: var(--white); color: var(--text-primary);
-            line-height: 1.5; -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background: #fff; color: var(--text);
+            line-height: 1.6; letter-spacing: -0.01em;
+            -webkit-font-smoothing: antialiased;
         }
-        .container { max-width: 1152px; margin: 0 auto; padding: 0 2rem; }
+        .content { max-width: 680px; margin: 0 auto; padding: 0 1.5rem; }
 
-        /* === NAV (Notion-style: clean, not sticky) === */
+        /* Nav — minimal, jak w dokumencie */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 1.25rem 0; margin-bottom: 5rem;
+            padding: 1.5rem 0; margin-bottom: 6rem;
+            max-width: 680px; margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem;
         }
-        .logo {
-            font-size: 15px; font-weight: 600; color: var(--text-primary);
-            text-decoration: none; letter-spacing: -0.15px;
+        nav a { font-size: 15px; font-weight: 500; color: var(--text); text-decoration: none; }
+        nav a:hover { color: var(--text-secondary); }
+        nav .logo { font-weight: 600; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+
+        /* Typography */
+        h1 {
+            font-size: 3.5rem; font-weight: 700; line-height: 1.05;
+            letter-spacing: -0.04em; margin-bottom: 1.5rem;
         }
-        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-        .nav-links a {
-            font-size: 15px; font-weight: 500; color: var(--text-primary);
-            text-decoration: none; transition: color 0.15s;
+        h2 {
+            font-size: 1.75rem; font-weight: 700; line-height: 1.2;
+            letter-spacing: -0.02em; margin: 4rem 0 1rem;
         }
-        .nav-links a:hover { color: var(--text-secondary); }
-        .nav-cta {
-            background: var(--cta-blue); color: #fff !important;
-            padding: 6px 14px; border-radius: 4px; font-weight: 600;
+        h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 0.5rem; letter-spacing: -0.01em; }
+        p { margin-bottom: 1rem; font-size: 1rem; color: var(--text-secondary); }
+        p.lead {
+            font-size: 1.25rem; line-height: 1.5; color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+        }
+        a { color: var(--blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Hero */
+        .hero { padding: 0 0 5rem; }
+        .hero h1 { margin-bottom: 1rem; }
+
+        /* Section divider */
+        .section { padding: 4rem 0; }
+        .section-warm { background: var(--bg-warm); padding: 4rem 0; margin: 0 calc(-50vw + 50%); padding-left: calc(50vw - 50%); padding-right: calc(50vw - 50%); }
+        .section-warm .content { background: transparent; }
+
+        /* Simple button */
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            background: var(--blue); color: #fff; padding: 10px 20px;
+            border-radius: 4px; font-size: 15px; font-weight: 600; text-decoration: none;
             transition: background 0.15s;
         }
-        .nav-cta:hover { background: var(--cta-hover); color: #fff !important; }
+        .btn:hover { background: var(--blue-hover); text-decoration: none; }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            background: transparent; color: var(--text); padding: 10px 20px;
+            border-radius: 4px; border: var(--border); font-size: 15px; font-weight: 500;
+            text-decoration: none;
+        }
+        .btn-outline:hover { background: rgba(0,0,0,0.03); text-decoration: none; }
 
-        /* === HERO (Notion: compressed, tight letter-spacing) === */
-        .hero {
-            text-align: center; padding: 0 0 6rem;
+        /* Comparison cards — editorial, not marketing */
+        .vs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+        .vs {
+            background: #fff; border: var(--border); border-radius: 12px;
+            padding: 1.75rem; box-shadow: var(--shadow-card); position: relative;
         }
-        .hero-pill {
-            display: inline-block; background: var(--pill-bg); color: var(--pill-text);
-            padding: 4px 8px; border-radius: 9999px; font-size: 12px; font-weight: 600;
-            letter-spacing: 0.125px; margin-bottom: 1.5rem;
+        .vs.best { border-color: rgba(0,117,222,0.2); }
+        .vs .label {
+            display: inline-block; background: #edf7ed; color: #0e7330;
+            font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 9999px;
+            margin-bottom: 0.75rem;
         }
-        .hero h1 {
-            font-size: clamp(2.5rem, 5.5vw, 4rem); font-weight: 700;
-            line-height: 1.0; letter-spacing: -2.125px; color: var(--text-primary);
-            margin-bottom: 1.25rem;
+        .vs h3 { margin: 0 0 0.25rem; font-size: 1.3rem; }
+        .vs .desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+        .vs .price {
+            font-size: 2rem; font-weight: 700; letter-spacing: -0.03em;
+            margin-bottom: 0.15rem;
         }
-        .hero p {
-            font-size: 20px; font-weight: 400; line-height: 1.4;
-            color: var(--text-secondary); max-width: 560px; margin: 0 auto 2rem;
-        }
-        .hero-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-        .btn-primary {
-            display: inline-flex; align-items: center; gap: 0.4rem;
-            background: var(--cta-blue); color: #fff; padding: 10px 20px;
-            border-radius: 4px; font-size: 15px; font-weight: 600; text-decoration: none;
-            transition: background 0.15s, transform 0.1s;
-        }
-        .btn-primary:hover { background: var(--cta-hover); }
-        .btn-primary:active { transform: scale(0.97); }
-        .btn-ghost {
-            display: inline-flex; align-items: center; gap: 0.4rem;
-            background: transparent; color: var(--text-primary); padding: 10px 20px;
-            border-radius: 4px; font-size: 15px; font-weight: 500; text-decoration: none;
-            transition: color 0.15s;
-        }
-        .btn-ghost:hover { text-decoration: underline; }
+        .vs .price span { font-size: 0.9rem; font-weight: 400; color: var(--text-secondary); }
+        .vs .price .note { display: block; font-size: 0.8rem; color: var(--text-muted); font-weight: 400; letter-spacing: 0; margin-top: 0.1rem; }
+        .vs ul { list-style: none; margin: 1rem 0; }
+        .vs ul li { font-size: 0.9rem; color: var(--text-secondary); padding: 0.3rem 0; }
+        .vs ul li::before { content: '— '; color: var(--text-muted); }
 
-        /* === SECTIONS === */
-        section { padding: 5rem 0; }
-        section.warm { background: var(--warm-white); }
-        .section-label {
-            font-size: 12px; font-weight: 600; color: var(--pill-text);
-            letter-spacing: 0.125px; text-transform: uppercase; margin-bottom: 0.75rem;
-        }
-        .section-title {
-            font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700;
-            line-height: 1.0; letter-spacing: -1.5px; color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-        .section-sub {
-            font-size: 20px; font-weight: 400; color: var(--text-secondary);
-            max-width: 560px; margin-bottom: 3rem;
-        }
+        /* Feature row — text only */
+        .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 4rem; margin: 2rem 0; }
+        .feature h3 { margin-top: 0; }
+        .feature p { font-size: 0.95rem; }
 
-        /* === STEPS === */
-        .steps {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+        /* CTA block */
+        .cta-block {
+            background: var(--bg-warm); border: var(--border);
+            border-radius: 12px; padding: 2.5rem; text-align: center;
+            margin: 3rem 0; box-shadow: var(--shadow-card);
         }
-        .step {
-            text-align: center; padding: 2rem 1.5rem;
-            background: var(--white); border: var(--border-whisper);
-            border-radius: 12px; box-shadow: var(--card-shadow);
-        }
-        .step-num {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 36px; height: 36px; border-radius: 9999px;
-            background: var(--pill-bg); color: var(--pill-text);
-            font-size: 15px; font-weight: 700; margin-bottom: 1rem;
-        }
-        .step h4 { font-size: 16px; font-weight: 600; margin-bottom: 0.4rem; }
-        .step p { font-size: 14px; color: var(--text-secondary); }
+        .cta-block h2 { margin-top: 0; font-size: 1.5rem; }
+        .cta-block p { margin-bottom: 1.5rem; }
+        .cta-block .note { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem; }
 
-        /* === BENEFIT CARDS === */
-        .cards { display: grid; gap: 1rem; }
-        .cards-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-        .card {
-            background: var(--white); border: var(--border-whisper);
-            border-radius: 12px; padding: 1.5rem;
-            box-shadow: var(--card-shadow); transition: box-shadow 0.2s;
-        }
-        .card:hover { box-shadow: var(--deep-shadow); }
-        .card-icon { font-size: 1.4rem; margin-bottom: 0.75rem; display: block; }
-        .card h3 { font-size: 18px; font-weight: 600; margin-bottom: 0.4rem; letter-spacing: -0.15px; }
-        .card p { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
-
-        /* === COMPARISON (Notion cards + Stripe tinted shadows) === */
-        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-        .vs-card {
-            background: var(--white); border: var(--border-whisper);
-            border-radius: 16px; padding: 2rem; position: relative;
-            box-shadow: var(--card-shadow);
-        }
-        .vs-card.featured {
-            border-color: rgba(0,117,222,0.25);
-            box-shadow: rgba(0,0,0,0.04) 0px 4px 18px, rgba(0,0,0,0.027) 0px 2px 7.85px, rgba(0,0,0,0.02) 0px 0.8px 2.93px, rgba(0,70,160,0.04) 0px 1px 3px;
-        }
-        .vs-badge {
-            position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
-            background: var(--green-pill-bg); color: var(--green-pill-text);
-            padding: 3px 10px; border-radius: 9999px;
-            font-size: 12px; font-weight: 600; letter-spacing: 0.125px;
-            white-space: nowrap;
-        }
-        .vs-card h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.25px; margin-bottom: 0.3rem; }
-        .vs-card .vs-sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 1.25rem; }
-        .vs-price {
-            font-size: 2.5rem; font-weight: 700; letter-spacing: -1px;
-            color: var(--text-primary); margin: 1rem 0 0.25rem;
-        }
-        .vs-price span { font-size: 1rem; font-weight: 400; }
-        .vs-price .renewal { display: block; font-size: 13px; color: var(--text-muted); font-weight: 400; letter-spacing: 0; margin-top: 0.15rem; }
-        .vs-list { list-style: none; margin: 1.25rem 0; }
-        .vs-list li {
-            padding: 0.45rem 0; font-size: 14px; color: var(--text-secondary);
-            display: flex; align-items: flex-start; gap: 0.5rem;
-        }
-        .vs-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
-        .vs-btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 0.3rem;
-            padding: 10px 20px; border-radius: 4px; font-size: 15px; font-weight: 600;
-            text-decoration: none; width: 100%; text-align: center; transition: all 0.15s;
-        }
-        .vs-btn-primary { background: var(--cta-blue); color: #fff; }
-        .vs-btn-primary:hover { background: var(--cta-hover); }
-        .vs-btn-primary:active { transform: scale(0.97); }
-        .vs-btn-outline {
-            background: transparent; color: var(--text-primary);
-            border: var(--border-whisper);
-        }
-        .vs-btn-outline:hover { background: rgba(0,0,0,0.03); }
-
-        /* === CTA SECTION === */
-        .cta-box {
-            background: var(--warm-white); border: var(--border-whisper);
-            border-radius: 16px; padding: 3rem; text-align: center;
-            box-shadow: var(--deep-shadow); margin: 1rem 0;
-        }
-        .cta-box h2 {
-            font-size: 26px; font-weight: 700; letter-spacing: -0.625px;
-            margin-bottom: 0.6rem;
-        }
-        .cta-box p { font-size: 16px; color: var(--text-secondary); margin-bottom: 1.5rem; }
-        .cta-small { font-size: 13px !important; color: var(--text-muted) !important; margin-top: 0.75rem; }
-
-        /* === FAQ (details/summary) === */
-        .faq { max-width: 680px; margin: 0 auto; }
+        /* FAQ */
         details {
-            background: var(--white); border: var(--border-whisper);
-            border-radius: 12px; padding: 1.2rem 1.5rem; margin-bottom: 0.6rem;
-            cursor: pointer; transition: border-color 0.15s;
+            border-top: var(--border); padding: 1.25rem 0;
+            cursor: pointer;
         }
-        details:hover { border-color: rgba(0,0,0,0.18); }
+        details:last-of-type { border-bottom: var(--border); }
         summary {
-            font-size: 16px; font-weight: 600; color: var(--text-primary);
-            list-style: none; display: flex; justify-content: space-between; align-items: center;
+            font-size: 1rem; font-weight: 500; list-style: none;
+            display: flex; justify-content: space-between; align-items: center;
+            color: var(--text);
         }
         summary::-webkit-details-marker { display: none; }
-        summary::after {
-            content: '+'; font-size: 1.3rem; color: var(--text-muted); font-weight: 400;
-            transition: transform 0.2s;
-        }
-        details[open] summary::after { content: '−'; }
-        details p { margin-top: 0.7rem; font-size: 14px; color: var(--text-secondary); }
+        summary::after { content: '›'; font-size: 1.2rem; color: var(--text-muted); transition: transform 0.15s; }
+        details[open] summary::after { transform: rotate(90deg); }
+        details p { margin-top: 0.6rem; font-size: 0.95rem; }
 
-        /* === FOOTER === */
+        /* Footer */
         footer {
-            background: var(--warm-white); padding: 3rem 0;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2rem;
+            margin-top: 6rem; padding: 3rem 0;
+            border-top: var(--border); font-size: 0.9rem; color: var(--text-muted);
+            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+            max-width: 680px; margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem;
         }
-        footer h4 { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.125px; margin-bottom: 0.75rem; }
-        footer a { display: block; font-size: 14px; color: var(--text-secondary); text-decoration: none; margin-bottom: 0.4rem; transition: color 0.15s; }
-        footer a:hover { color: var(--text-primary); }
-        .footer-bottom {
-            background: var(--warm-white); padding: 1.5rem 0; text-align: center;
-            font-size: 13px; color: var(--text-muted); border-top: var(--border-whisper);
-        }
+        footer a { color: var(--text-muted); }
+        footer a:hover { color: var(--text); }
 
-        @media (max-width: 768px) {
-            .container { padding: 0 1.25rem; }
-            .nav-links a:not(.nav-cta) { display: none; }
-            .hero h1 { font-size: 2.5rem; letter-spacing: -1.5px; }
-            .steps { grid-template-columns: 1fr; }
-            .cards-3 { grid-template-columns: 1fr; }
-            .compare-grid { grid-template-columns: 1fr; }
-            section { padding: 3rem 0; }
-            footer { grid-template-columns: 1fr 1fr; }
+        @media (max-width: 680px) {
+            h1 { font-size: 2.25rem; }
+            .vs-row { grid-template-columns: 1fr; }
+            .feature-row { grid-template-columns: 1fr; gap: 1.5rem; }
+            nav .nav-links a:not(:last-child) { display: none; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- NAV -->
-        <nav>
-            <a href="./" class="logo">hostingporadnik</a>
-            <div class="nav-links">
-                <a href="#jak-wybrac">Jak wybrać</a>
-                <a href="#porownanie">Porównanie</a>
-                <a href="blog/">Blog</a>
-                <a href="#checklista" class="nav-cta">Checklista ↓</a>
-            </div>
-        </nav>
 
-        <!-- HERO -->
+    <!-- Nav -->
+    <nav>
+        <a href="./" class="logo">hostingporadnik</a>
+        <div class="nav-links">
+            <a href="blog/">Blog</a>
+            <a href="#porownanie">Porównanie</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <!-- Hero -->
         <header class="hero">
-            <div class="hero-pill">Aktualizacja: Czerwiec 2026</div>
-            <h1>Pierwsza strona?<br>Bezproblemowo.</h1>
-            <p>Wybierz hosting odpowiedni dla siebie, postaw stronę i pokaż światu co tworzysz. Bez wkuwania manuali i bez przepłacania.</p>
-            <div class="hero-actions">
-                <a href="#checklista" class="btn-primary">Pobierz checklistę</a>
-                <a href="#porownanie" class="btn-ghost">Zobacz porównanie →</a>
-            </div>
+            <h1>Jaki hosting wybrać na pierwszą stronę</h1>
+            <p class="lead">Krόtki przewodnik dla każdego, kto stawia pierwszą stronę i nie chce przepłacać ani czytać marketingowego bełkotu. Dwie rekomendacje, konkretne liczby, zero zgadywania.</p>
+            <p>Wpisując w Google „jaki hosting\" dostajesz tysiąc poradników, z których każdy poleca co innego. Jedni mówią SiteGround, drudzy Hostinger, a jeszcze inni każą omijać oba. Po przeczytaniu 5 artykułów jesteś mądrzejszy o zero decyzji.</p>
+            <p>Dlatego przygotowałem to zestawienie. Nie jest to ranking 10 hostingów z linkami afiliacyjnymi pod każdym (choć jeden link tu jest). To dwie sensowne opcje na start, opisane tak, żebyś mógł podjąć decyzję w 5 minut i zająć się tym, co naprawdę ważne — budowaniem swojej strony.</p>
         </header>
     </div>
 
-    <!-- STEPS (warm section) -->
-    <section class="warm">
-        <div class="container">
-            <div class="section-label">Od zera do strony</div>
-            <h2 class="section-title">Trzy kroki.</h2>
-            <p class="section-sub">Żadnej filozofii. Tyle wystarczy, żeby Twoja pierwsza strona stanęła na solidnym fundamencie.</p>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-num">1</div>
-                    <h4>Sprawdź checklistę</h4>
-                    <p>12 konkretnych punktów. 5 minut lektury. Dowiesz się na co naprawdę zwracać uwagę przy wyborze hostingu.</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">2</div>
-                    <h4>Wybierz hosting</h4>
-                    <p>Porównaj dwie sprawdzone opcje — jakościową i budżetową — i wybierz tę, która pasuje do Twojej sytuacji.</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">3</div>
-                    <h4>Postaw stronę</h4>
-                    <p>Instalator WordPress na jedno kliknięcie. Tutoriale krok po kroku. Strona gotowa zanim wypijesz kawę.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BENEFITS -->
-    <section id="jak-wybrac">
-        <div class="container">
-            <div class="section-label">Na co zwrócić uwagę</div>
-            <h2 class="section-title">Co ma znaczenie.</h2>
-            <p class="section-sub">Nie marketingowe obietnice. Konkretne rzeczy, które przekładają się na działanie Twojej strony.</p>
-            <div class="cards cards-3">
-                <div class="card">
-                    <span class="card-icon">🔒</span>
+    <!-- Features — warm bg, text-only grid -->
+    <div class="section-warm">
+        <div class="content">
+            <h2>Bez tego ani rusz</h2>
+            <p>Niektóre rzeczy są negocjowalne. Te pięć — nie. Jeśli hosting nie ma ich w standardzie, nawet na niego nie patrz.</p>
+            <div class="feature-row">
+                <div class="feature">
                     <h3>Darmowy SSL</h3>
-                    <p>Strona bez HTTPS w 2026 roku to jak drzwi bez zamka. Google ją skreśla, odwiedzający uciekają. Każdy hosting który polecam daje certyfikat SSL za darmo.</p>
+                    <p>Certyfikat HTTPS musi być w cenie, a nie za dopłatą. Strona bez kłódki w 2026 roku nie istnieje dla Google ani dla odwiedzających.</p>
                 </div>
-                <div class="card">
-                    <span class="card-icon">⚡</span>
-                    <h3>Instalator 1-klik</h3>
-                    <p>WordPress, Joomla, Drupal — instalujesz jednym przyciskiem. Nie musisz umieć kodować ani konfigurować baz danych ręcznie.</p>
+                <div class="feature">
+                    <h3>Automatyczny backup</h3>
+                    <p>Codzienny, a nie cotygodniowy. Strona się wysypie — to kwestia czasu, nie pecha. Backup to Twoja polisa. Ma być wliczony w cenę i odtwarzany jednym kliknięciem.</p>
                 </div>
-                <div class="card">
-                    <span class="card-icon">💾</span>
-                    <h3>Codzienny backup</h3>
-                    <p>Coś poszło nie tak? Przywracasz stronę sprzed godziny. Automatycznie. Bez kombinowania z FTP i ręcznymi kopiami.</p>
+                <div class="feature">
+                    <h3>WordPress na kliknięcie</h3>
+                    <p>Automatyczny instalator w panelu. Nie FTP, nie ręczne tworzenie baz. Wybierasz WordPress z listy, klikasz „instaluj\" i po minucie masz gotową stronę do wypełnienia treścią.</p>
                 </div>
-                <div class="card">
-                    <span class="card-icon">🇵🇱</span>
-                    <h3>Polski support</h3>
-                    <p>Problem o północy? Piszesz na czat i dostajesz odpowiedź po polsku. Od człowieka który zna się na rzeczy, nie czyta ze skryptu.</p>
+                <div class="feature">
+                    <h3>Support po polsku</h3>
+                    <p>Czat, nie ticket. Po polsku, nie przez translator. O 2 w nocy, a nie „w godzinach pracy\". Jak coś nie działa, nie masz czasu czekać na odpowiedź na emaila. Potrzebujesz rozwiązania teraz.</p>
                 </div>
-                <div class="card">
-                    <span class="card-icon">📈</span>
-                    <h3>Przestrzeń na rozwój</h3>
-                    <p>Zaczynasz od bloga, z czasem dodajesz portfolio, potem sklep. Twój hosting ma za tym nadążyć bez migracji do innej firmy.</p>
-                </div>
-                <div class="card">
-                    <span class="card-icon">💰</span>
-                    <h3>Bez przepłacania</h3>
-                    <p>Dobry hosting na start kosztuje 12–25 zł miesięcznie. Taniej = ryzyko. Drożej = nie potrzebujesz na tym etapie. Pokażę Ci opcje które są warte swojej ceny.</p>
+                <div class="feature">
+                    <h3>Gwarancja zwrotu</h3>
+                    <p>Minimum 30 dni, a nie „7 dni od zakupu\". Masz prawo sprawdzić czy hosting Ci odpowiada. Firma która nie daje takiej gwarancji — nie ufa własnemu produktowi. Ty też nie powinieneś.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- COMPARISON (warm section) -->
-    <section class="warm" id="porownanie">
-        <div class="container">
-            <div class="section-label">Porównanie</div>
-            <h2 class="section-title">Dwa hostingi.<br>Jedna decyzja.</h2>
-            <p class="section-sub">Oba sprawdzone, oba z polskim supportem. Różni je filozofia i cena. Wybierz świadomie.</p>
-            
-            <div class="compare-grid">
-                <div class="vs-card featured">
-                    <div class="vs-badge">🥇 Polecany</div>
-                    <h3>SiteGround</h3>
-                    <p class="vs-sub">Jakość i spokój. Dla tych, którzy wolą zapłacić więcej i zapomnieć o problemach.</p>
-                    <div class="vs-price">~14 zł<span>/mies</span><span class="renewal">~70 zł/mies po okresie promocyjnym</span></div>
-                    <ul class="vs-list">
-                        <li>Support 24/7 który faktycznie rozwiązuje problemy</li>
-                        <li>Google Cloud + własny system cache</li>
-                        <li>Codzienne backupy w każdym planie</li>
-                        <li>Panel Site Tools — czysty i nowoczesny</li>
-                        <li>30 dni na zwrot bez pytania</li>
-                    </ul>
-                    <a href="https://www.siteground.com/index.htm?afcode=42bd038b0c6a6e9f38a647f3e980c15b" class="vs-btn vs-btn-primary" target="_blank" rel="nofollow sponsored">Sprawdź SiteGround →</a>
-                </div>
-                <div class="vs-card">
-                    <h3>Hostinger</h3>
-                    <p class="vs-sub">Cena i prostota. Dla tych, którzy chcą zacząć tanio, ale nie byle jak.</p>
-                    <div class="vs-price">~12 zł<span>/mies</span><span class="renewal">~35 zł/mies po okresie promocyjnym</span></div>
-                    <ul class="vs-list">
-                        <li>Najlepszy stosunek ceny do możliwości</li>
-                        <li>Darmowa domena na pierwszy rok</li>
-                        <li>Własny panel hPanel — prostszy niż cPanel</li>
-                        <li>LiteSpeed Cache do WordPressa</li>
-                        <li>30 dni gwarancji zwrotu</li>
-                    </ul>
-                    <a href="https://www.hostinger.pl/" class="vs-btn vs-btn-outline" target="_blank" rel="nofollow">Sprawdź Hostinger →</a>
-                </div>
+    <!-- Comparison -->
+    <div class="content section" id="porownanie">
+        <h2>Dwie sensowne opcje na start</h2>
+        <p>Oba hostingi spełniają pięć warunków powyżej. Oba mają polski support 24/7 i instalator WordPress. Różnią się podejściem: jeden stawia na jakość i spokój, drugi na cenę i prostotę.</p>
+
+        <div class="vs-row">
+            <div class="vs best">
+                <div class="label">Rekomendowany</div>
+                <h3>SiteGround</h3>
+                <p class="desc">Dla tych, którzy wolą zapłacić więcej i zapomnieć o problemach.</p>
+                <div class="price">~14 zł<span>/mies</span><span class="note">~70 zł/mies po okresie promocyjnym</span></div>
+                <ul>
+                    <li>Google Cloud, własny cache (SuperCacher)</li>
+                    <li>Support który faktycznie rozwiązuje problemy</li>
+                    <li>Codzienny backup w każdym planie</li>
+                    <li>Czysty, nowoczesny panel Site Tools</li>
+                    <li>Darmowy plugin do migracji stron</li>
+                </ul>
+                <a href="https://www.siteground.com/index.htm?afcode=42bd038b0c6a6e9f38a647f3e980c15b" class="btn" target="_blank" rel="nofollow sponsored">Sprawdź SiteGround</a>
+            </div>
+            <div class="vs">
+                <h3>Hostinger</h3>
+                <p class="desc">Dla tych, którzy chcą zacząć tanio, ale bez kompromisów na starcie.</p>
+                <div class="price">~12 zł<span>/mies</span><span class="note">~35 zł/mies po okresie promocyjnym</span></div>
+                <ul>
+                    <li>Najlepszy stosunek ceny do możliwości</li>
+                    <li>Darmowa domena na pierwszy rok</li>
+                    <li>Prosty, własny panel hPanel</li>
+                    <li>LiteSpeed Cache do WordPressa</li>
+                    <li>30 dni na zwrot</li>
+                </ul>
+                <a href="https://www.hostinger.pl/" class="btn-outline" target="_blank" rel="nofollow">Sprawdź Hostinger</a>
             </div>
         </div>
-    </section>
 
-    <!-- CTA -->
-    <div class="container" id="checklista">
-        <div class="cta-box">
-            <h2>Nie wybieraj w ciemno.</h2>
-            <p>Przygotowałem checklistę — 12 konkretnych punktów do sprawdzenia przed zakupem hostingu. 5 minut czytania. Zero spamu.</p>
-            <a href="https://github.com/jxroo/hostingporadnik-pl/raw/main/assets/checklista-hosting.md" class="btn-primary" style="font-size:16px;padding:12px 28px;">Pobierz checklistę (PDF)</a>
-            <p class="cta-small">Za darmo. Bez zapisywania maila. Po prostu plik.</p>
+        <h3>Który wybrać?</h3>
+        <p>Jeśli stawiasz stronę która ma zarabiać i zależy Ci na supporcie który ogarnia sprawy od ręki — <a href="https://www.siteground.com/index.htm?afcode=42bd038b0c6a6e9f38a647f3e980c15b" target="_blank" rel="nofollow sponsored">SiteGround</a>. Jeśli budżet jest priorytetem i ogarniasz podstawy techniczne sam — Hostinger. Nie ma trzeciej opcji, która w tym przedziale cenowym robi robotę równie dobrze.</p>
+        <p style="font-size:0.9rem;color:var(--text-muted);">Więcej szczegółów — ceny odnowień, porównanie szybkości, testy supportu — w <a href="blog/siteground-vs-hostinger-2026.html">pełnym porównaniu na blogu</a>.</p>
+    </div>
+
+    <!-- CTA Checklist -->
+    <div class="content">
+        <div class="cta-block">
+            <h2>Nie wybieraj w ciemno</h2>
+            <p>Przygotowałem checklistę — 12 punktów do sprawdzenia przed zakupem hostingu. Wypunktowane, bez lania wody, do przeczytania w 5 minut. Za darmo.</p>
+            <a href="https://github.com/jxroo/hostingporadnik-pl/raw/main/assets/checklista-hosting.md" class="btn">Pobierz checklistę</a>
+            <p class="note">Bez zapisywania się na cokolwiek. Po prostu plik.</p>
         </div>
     </div>
 
     <!-- FAQ -->
-    <section>
-        <div class="container">
-            <div style="text-align:center;margin-bottom:3rem;">
-                <div class="section-label">FAQ</div>
-                <h2 class="section-title" style="text-align:center;">Pytania, które<br>sam bym zadał.</h2>
-            </div>
-            <div class="faq">
-                <details>
-                    <summary>„Nie znam się na hostingu. Dam radę?"</summary>
-                    <p>Tak. Hosting w 2026 roku to nie serwerownia — to panel, w którym klikasz „zainstaluj WordPress", wybierasz domenę i gotowe. Jeśli ogarniasz Facebooka, ogarniesz hosting.</p>
-                </details>
-                <details>
-                    <summary>„Hosting współdzielony czy VPS — co wybrać?"</summary>
-                    <p><strong>Współdzielony</strong> = blok ze współlokatorami. Tanio, wszystko ogarnięte, ale dzielisz zasoby. <strong>VPS</strong> = własne mieszkanie. Drożej, więcej kontroli, ale sam zarządzasz. Na start — bierz współdzielony. Od tego wszyscy zaczynają.</p>
-                </details>
-                <details>
-                    <summary>„Ile to realnie kosztuje?"</summary>
-                    <p>Dobry hosting: 12–25 zł miesięcznie. Domena .pl: około 50 zł rocznie. Razem ok. 200–350 zł za rok — mniej niż roczny abonament Netflixa.</p>
-                </details>
-                <details>
-                    <summary>„Czy hosting to to samo co domena?"</summary>
-                    <p>Nie. <strong>Domena</strong> to adres (np. twojanazwa.pl). <strong>Hosting</strong> to miejsce, gdzie trzymasz pliki strony. Kupujesz je osobno, choć niektóre firmy dają domenę gratis na pierwszy rok.</p>
-                </details>
-                <details>
-                    <summary>„Mogę zmienić hosting później?"</summary>
-                    <p>Tak, bez problemu. Przenosisz pliki, zmieniasz ustawienia DNS i działasz dalej. SiteGround ma nawet darmowy plugin do migracji — jedno kliknięcie i gotowe. Nie jesteś uwiązany na zawsze.</p>
-                </details>
-                <details>
-                    <summary>„Po co mi własna strona? Mam LinkedIn i Instagram."</summary>
-                    <p>Profil na social mediach nie jest Twój — należy do platformy. Algorytm się zmienia i zasięgi spadają. Własna strona to Twoja przestrzeń. Nikt Ci jej nie wyłączy, nie zmieni regulaminu, nie schowa za paywallem.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container" style="display: contents;">
-            <div>
-                <h4>Nawigacja</h4>
-                <a href="./">Strona główna</a>
-                <a href="blog/">Blog</a>
-                <a href="#checklista">Checklista</a>
-                <a href="#faq">FAQ</a>
-            </div>
-            <div>
-                <h4>Polecane</h4>
-                <a href="https://www.siteground.com/index.htm?afcode=42bd038b0c6a6e9f38a647f3e980c15b" target="_blank" rel="nofollow sponsored">SiteGround</a>
-                <a href="https://www.hostinger.pl/" target="_blank" rel="nofollow">Hostinger</a>
-                <a href="blog/siteground-vs-hostinger-2026.html">Pełne porównanie</a>
-            </div>
-            <div>
-                <h4>Zasoby</h4>
-                <a href="https://github.com/jxroo/hostingporadnik-pl/raw/main/assets/checklista-hosting.md">Checklista (PDF)</a>
-                <a href="https://github.com/jxroo/hostingporadnik-pl">GitHub</a>
-            </div>
-        </div>
-    </footer>
-    <div class="footer-bottom">
-        <div class="container">Niektórzy linki to linki afiliacyjne. Polecam tylko to, czego sam bym użył. © 2026 Hosting Poradnik</div>
+    <div class="content section" style="padding-top: 2rem;">
+        <h2>Najczęściej zadawane</h2>
+        <details>
+            <summary>Nie znam się na hostingu. Czy dam radę postawić stronę?</summary>
+            <p>Tak. Hosting w 2026 to panel gdzie wybierasz WordPress z listy, klikasz „zainstaluj\" i po minucie logujesz się na gotową stronę. Nie potrzebujesz umieć kodować ani konfigurować serwerów. Jeśli ogarniasz Facebooka albo Canvę — ogarniesz hosting.</p>
+        </details>
+        <details>
+            <summary>Hosting współdzielony czy VPS?</summary>
+            <p>Współdzielony = blok z sąsiadami. Tanio, wszystko ogarnięte przez administrację, ale dzielisz zasoby z innymi stronami na tym samym serwerze. VPS = własne mieszkanie. Drożej, więcej kontroli, ale sam zarządzasz (aktualizacje, bezpieczeństwo, konfiguracja). Na pierwszą stronę bierz współdzielony. VPS to krok drugi, nie pierwszy.</p>
+        </details>
+        <details>
+            <summary>Ile to realnie kosztuje?</summary>
+            <p>Dobry hosting współdzielony: 12–25 zł miesięcznie przy pierwszym zakupie, 35–70 zł przy odnowieniu. Domena .pl: około 50 zł rocznie. Razem około 200–400 zł za pierwszy rok. Taniej niż roczny abonament Netflixa.</p>
+        </details>
+        <details>
+            <summary>Czy hosting i domena to to samo?</summary>
+            <p>Nie. Domena to adres Twojej strony (np. twojastrona.pl). Hosting to komputer, na którym ta strona fizycznie siedzi. Kupujesz je osobno — domenę u rejestratora (nazwa.pl, OVH), hosting u dostawcy. Niektórzy dostawcy (jak Hostinger) dorzucają domenę gratis na pierwszy rok.</p>
+        </details>
+        <details>
+            <summary>Co jeśli strona wyrośnie z hostingu?</summary>
+            <p>Zaczynasz od najtańszego planu. Jak strona rośnie — przechodzisz na wyższy plan u tego samego dostawcy (więcej miejsca, więcej mocy). Przy naprawdę dużym ruchu celujesz w VPS lub hosting w chmurze. Dobry dostawca nie robi problemów z migracją między planami.</p>
+        </details>
+        <details>
+            <summary>Czy mogę przenieść stronę do innej firmy?</summary>
+            <p>Tak. Kopiujesz pliki i bazę danych, zmieniasz ustawienia DNS i strona działa pod nowym hostingiem. Niektóre firmy (SiteGround) mają darmowy plugin który robi migrację automatycznie. Inni oferują płatną usługę migracji. Nie jesteś uwiązany na zawsze.</p>
+        </details>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <a href="blog/">Blog</a>
+        <a href="blog/siteground-vs-hostinger-2026.html">Pełne porównanie</a>
+        <a href="https://github.com/jxroo/hostingporadnik-pl">GitHub</a>
+        <span>Niektóre linki to linki afiliacyjne. © 2026</span>
+    </footer>
 </body>
 </html>
